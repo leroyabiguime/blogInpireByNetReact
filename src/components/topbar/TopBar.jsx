@@ -4,10 +4,10 @@ const TopBar = () => {
     return (
         <div className="top">
             <div className="topLeft">
-            <i class="topIcon fab fa-facebook-square"></i>
-            <i class="topIcon fab fa-twitter-square"></i>
-            <i class="topIcon fab fa-pinterest-square"></i>
-            <i class="topIcon fab fa-instagram-square"></i>
+            <i className="topIcon fab fa-facebook-square"></i>
+            <i className="topIcon fab fa-twitter-square"></i>
+            <i className="topIcon fab fa-pinterest-square"></i>
+            <i className="topIcon fab fa-instagram-square"></i>
             </div>
             <div className="topCenter">
                 <ul className="topList">
