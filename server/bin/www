@@ -7,7 +7,8 @@
 var app = require('../app');
 var debug = require('debug')('server:server');
 var http = require('http');
-
+const dotenv = require("dotenv");
+const mongoose = require("mongoose")
 /**
  * Get port from environment and store in Express.
  */
@@ -88,3 +89,14 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+
+dotenv.config()
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(console.log("COnnectes to Mongidb"))
+.catch((err) => console.log(err));
+
+//Global Routes
