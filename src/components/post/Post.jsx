@@ -3,7 +3,7 @@ import './post.css'
 const Post = () => {
     return (
         <div className="post">
-           <img className="postImg" src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/grandblog/demo/wp-content/uploads/2015/11/aboutme.jpg"
+           <img className="postImg" alt='img-post' src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/grandblog/demo/wp-content/uploads/2015/11/aboutme.jpg"
            />
            <div className="postInfo">
                <div className="postCats">
