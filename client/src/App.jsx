@@ -10,8 +10,9 @@ import {
   Switch,
   Route,
 } from "react-router-dom"
+import SinglePost from "./components/singlePost/SinglePost";
 function App() {
-const user = false;
+const user = true;
   return (
     <Router>
       <TopBar />
@@ -32,7 +33,7 @@ const user = false;
         {user ? <Settings/> : <Login/> }
         </Route>
         <Route path="/post/:postId">
-        {user ? <Single/> : <Login/> }
+        {user ? <Single /> : <Login/> }
         </Route>
       </Switch>
     </Router>
