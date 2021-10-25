@@ -1,39 +1,31 @@
 import './post.css'
-
-const Post = () => {
+import { Link } from 'react-router-dom'
+const Post = ({post}) => {
     return (
         <div className="post">
-           <img className="postImg" alt='img-post' src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/grandblog/demo/wp-content/uploads/2015/11/aboutme.jpg"
-           />
+        {post.photo && (
+           <img className="postImg" alt='img-post' src={post.photo} />
+        )}
+        {/* <img className="postImg" alt='img-post' src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/grandblog/demo/wp-content/uploads/2015/11/aboutme.jpg"
+           /> */}
            <div className="postInfo">
                <div className="postCats">
-                    <span className="postCat">Music</span>
-                    <span className="postCat">Life</span>
+               {post.categories.map((categorie)=> (
+                <span className="postCat">{categorie.name}</span>
+               ))}
                </div>
-               <span className="postTitle">
-               Lorem ipsum dolor sit amet
-               </span>
+           <Link to={`/post/${post._id}`}> 
+                <span className="postTitle">
+                    {post.title}
+                </span>
+           </Link>
                <hr/>
            <span className="postDate">
-               2 hours ago
+               {new Date(post.createdAt).toDateString()}
            </span>
            </div>
            <p className="postDesc">
-           Lorem ipsum dolor sit am, consectetur adipiscing el aspect et non
-           Lorem ipsum dolor sit am, consectetur adipiscing el aspect et non
-           Lorem ipsum dolor sit am, consectetur adipiscing el aspect et non
-           Lorem ipsum dolor sit am, consectetur adipiscing el aspect et non
-           Lorem ipsum dolor sit am, consectetur adipiscing el aspect et non
-           Lorem ipsum dolor sit am, consectetur adipiscing el aspect et non
-           Lorem ipsum dolor sit am, consectetur adipiscing el aspect et non
-           Lorem ipsum dolor sit am, consectetur adipiscing el aspect et non
-           Lorem ipsum dolor sit am, consectetur adipiscing el aspect et non
-           Lorem ipsum dolor sit am, consectetur adipiscing el aspect et non
-           Lorem ipsum dolor sit am, consectetur adipiscing el aspect et non
-           Lorem ipsum dolor sit am, consectetur adipiscing el aspect et non
-           Lorem ipsum dolor sit am, consectetur adipiscing el aspect et non
-           Lorem ipsum dolor sit am, consectetur adipiscing el aspect et non
-
+           {post.desc}
            </p>
            
           
