@@ -11,8 +11,10 @@ import {
   Route,
 } from "react-router-dom"
 import SinglePost from "./components/singlePost/SinglePost";
+import { useContext } from "react";
+import { Context } from "./context/Context";
 function App() {
-const user = false;
+const {user} = useContext(Context);
   return (
     <Router>
       <TopBar />
