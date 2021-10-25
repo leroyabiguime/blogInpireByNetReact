@@ -12,7 +12,7 @@ import {
 } from "react-router-dom"
 import SinglePost from "./components/singlePost/SinglePost";
 function App() {
-const user = true;
+const user = false;
   return (
     <Router>
       <TopBar />
