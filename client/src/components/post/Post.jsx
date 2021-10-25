@@ -10,8 +10,8 @@ const Post = ({post}) => {
            /> */}
            <div className="postInfo">
                <div className="postCats">
-               {post.categories.map((categorie)=> (
-                <span className="postCat">{categorie.name}</span>
+               {post.categories.map((categorie, index)=> (
+                <span className="postCat" key={index}>{categorie?.name}</span>
                ))}
                </div>
            <Link to={`/post/${post._id}`}> 
