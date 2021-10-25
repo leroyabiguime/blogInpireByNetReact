@@ -26,9 +26,7 @@ const Post = ({post}) => {
            </div>
            <p className="postDesc">
            {post.desc}
-           </p>
-           
-          
+           </p>      
         </div>
     )
 }
