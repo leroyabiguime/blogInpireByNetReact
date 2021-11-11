@@ -1,10 +1,11 @@
 import './post.css'
 import { Link } from 'react-router-dom'
 const Post = ({post}) => {
+    const PF = "http://localhost:5000/images/"
     return (
         <div className="post">
         {post.photo && (
-           <img className="postImg" alt='img-post' src={post.photo} />
+           <img className="postImg" alt='img-post' src={PF + post.photo} />
         )}
         {/* <img className="postImg" alt='img-post' src="https://themegoods-cdn-pzbycso8wng.stackpathdns.com/grandblog/demo/wp-content/uploads/2015/11/aboutme.jpg"
            /> */}

@@ -16,7 +16,7 @@ const Write = () => {
             desc,
         }
         if(file) {
-            const data = FormData();
+            const data = new FormData();
             const filename = Date.now() + file.name
             data.append("name", filename)
             data.append("file",file )
@@ -33,22 +33,20 @@ const Write = () => {
     return (
         <div className="write">
         {file &&
-          <img className="writeImg" alt="writter"
-          src={URL.createObjectURL(file)}
-           />
+          (<img className="writeImg" alt="writter" src={window.URL.createObjectURL(file)}/>)
         }
             <form className="writeForm" onSubmit={handleSubmit}>
                 <div className="writeFormGroup">
                     <label htmlFor="fileInput">
                         <i className="writeIcon fas fa-plus"></i>
                     </label>
-                    <input type="file" id="fileInput" style={{display: 'none'}}/>
-                    <input type="text" placeholder="Title" className="writeInput" autoFocus={true}/>
+                    <input type="file" id="fileInput" style={{display: 'none'}} onChange={(e) => setFile(e.target.files[0])}/>
+                    <input type="text" placeholder="Title" className="writeInput" onChange={(e)=> setTitle(e.target.value)} autoFocus={true}/>
                 </div>
                 <div className="writeFormGroup">
-                    <textarea className="writeInput writeText" placeholder="Tell your story..." type="text"></textarea>
+                    <textarea className="writeInput writeText" onChange={(e) => setDesc(e.target.value)} placeholder="Tell your story..." type="text"></textarea>
                 </div>
-                <button className="writeSubmit" type="button">Publish</button>
+                <button className="writeSubmit" type="submit">Publish</button>
             </form>
         </div>
     )
