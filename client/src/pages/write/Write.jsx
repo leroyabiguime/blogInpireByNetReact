@@ -1,13 +1,13 @@
 import { useContext, useState } from 'react'
 import './write.css'
 import axios from "axios"
-import {Context} from "../../context/Context"
+import { Context } from "../../context/Context"
 
 const Write = () => {
     const [title, setTitle] = useState('')
     const [desc, setDesc] = useState('')
     const [file, setFile] = useState('')
-    const {user} = useContext(user)
+    const {user} = useContext(Context)
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newPost = {
@@ -23,17 +23,20 @@ const Write = () => {
             newPost.photo = filename;
             try {
                 await axios.post("/upload", data)
-            } catch (error) {
-                
-            }
+            } catch (error) {}
         }
-        axios.post("/posts",newPost )
+        try {
+            const res = await axios.post("/posts", newPost)
+            window.location.replace('/post/' + res.data._id)
+        }catch (error) {}
     }
     return (
         <div className="write">
-        <img className="writeImg" alt="writter"
-        src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-         />
+        {file &&
+          <img className="writeImg" alt="writter"
+          src={URL.createObjectURL(file)}
+           />
+        }
             <form className="writeForm" onSubmit={handleSubmit}>
                 <div className="writeFormGroup">
                     <label htmlFor="fileInput">
