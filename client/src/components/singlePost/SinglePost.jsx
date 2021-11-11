@@ -13,11 +13,14 @@ const SinglePost = () => {
   const path = location.pathname.split("/")[2]
   const PF = 'http://localhost:5000/images/'
   const {user} = useContext(Context)
+  const [title, setTitle] = useState()
+  const [updateMode, setUpdateMode] = useState(false)
   useEffect(() => {
     const getPost = async () => {
       const res = await axios.get("/posts/"+ path)
       setPost(res.data)
-      console.log(res.data)
+      setTitle(res.data.title)
+      setDesc(res.data.desc)
     }
     getPost()
   }, [path])
@@ -35,19 +38,25 @@ const SinglePost = () => {
          {post?.photo &&
           <img
           className="singlePostImg"
-          src={PF + post?.photo} alt="img"
+          src={PF + post?.photo} alt="img"/>}
+          {updateMode ? (<input type="text" 
+          value={post?.title} 
+          className="singlePostTitleInput" 
+          autoFocus
           />
-          }
+          ) : (
           <h1 className="singlePostTitle">
             {post?.title}
             {post?.username === user?.username && (
               <div className="singlePostEdit">
-                <i className="singlePostIcon fas fa-edit"></i>
+                <i className="singlePostIcon fas fa-edit" onClick= {() =>setUpdateMode(true)}></i>
                 <i className="singlePostIcon far fa-trash-alt" onClick={handleDelete}></i>
               </div>
             )}
             
           </h1>
+           )
+          }
           <div className="singlePostInfo">
           <span className="singlePostAuthor">
           Author:
@@ -57,9 +66,10 @@ const SinglePost = () => {
            </span>
           <span className="singlePostDate">1 hour ago</span>
           </div>
-          <p className="singlePostDesc">
+          {updateMode ?  (<textarea className="singlePostDescInput" value= {post.desc} />)
+          : (<p className="singlePostDesc">
             {post?.desc}
-          </p>
+          </p>)}
           </div>
         </div>
     )
