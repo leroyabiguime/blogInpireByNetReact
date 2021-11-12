@@ -1,10 +1,10 @@
 # React Blog
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-This is a simple Blog build with MERN stack. 
-API:  Built with Express
-Frontend: Built with ReactJS
-Database: MongoDB
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
+This is a simple Blog build with MERN stack. \
+API:  Built with Express \
+Frontend: Built with ReactJS \
+Database: MongoDB \
 
 ## Available Launching Scripts
 
