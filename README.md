@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This is a simple Blog build with MERN stack. \
 API:  Built with Express \
 Frontend: Built with ReactJS \
-Database: MongoDB \
+Database: MongoDB 
 
 ## Available Launching Scripts
 
